@@ -102,7 +102,7 @@ def vectorize(trigrams,text_model):
 
 # Hàm dự đoán
 def label_prediction(vector,text_model,class_model):
-    
+
     if text_model == 'Bag of Words':
         vector.sort_indices()
         prediction = dnn_bow.predict(vector)
