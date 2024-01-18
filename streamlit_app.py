@@ -104,16 +104,10 @@ def vectorize(trigrams,text_model):
 def label_prediction(vector,text_model,class_model):
 
     if text_model == 'Bag of Words':
-        vector.sort_indices()
-        prediction = dnn_bow.predict(vector)
-        y_int_inverse = np.argmax(prediction, axis=1)
-        label = label_encoder.inverse_transform(y_int_inverse)
+        label = bow_models[class_model].predict(vector)
         return label[0]
     if text_model == 'TF-IDF':
-        vector.sort_indices()
-        prediction = dnn_tfidf.predict(vector)
-        y_int_inverse = np.argmax(prediction, axis=1)
-        label = label_encoder.inverse_transform(y_int_inverse)
+        label = tfidf_models[class_model].predict(vector)
         return label[0]
     
 def main():
