@@ -135,7 +135,7 @@ def main():
     if st.button('Predict!'):
         trigrams = preprocess_corpus(corpus)
         vector = vectorize(trigrams,text_model)
-        label = loan_prediction(vector,text_model,class_model) 
+        label = label_prediction(vector,text_model,class_model) 
         st.success(label)    
     
 
